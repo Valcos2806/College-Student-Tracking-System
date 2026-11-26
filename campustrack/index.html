@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#173b33" />
+    <meta name="description" content="CampusTrack helps colleges monitor student progress, attendance, grades, and early-warning signals." />
+    <title>CampusTrack — College Student Tracking</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="app-shell">
+        <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+          <div class="brand">
+            <div class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none"><path d="M7 11.5 16 6l9 5.5-9 5.5-9-5.5Z" fill="currentColor"/><path d="M10.5 15v6.2c3 2.7 8 2.7 11 0V15M25 12v8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div><span class="brand-name">CampusTrack</span><span class="brand-subtitle">Student success, simplified</span></div>
+          </div>
+
+          <div class="workspace-switcher">
+            <div class="workspace-icon">CU</div>
+            <div class="workspace-copy"><strong>City University</strong><span>2026–2027 Academic Year</span></div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m8 10 4 4 4-4"/></svg>
+          </div>
+
+          <nav class="main-nav">
+            <span class="nav-label">Workspace</span>
+            <button class="nav-item active" data-page="overview"><span data-icon="layout"></span><span>Overview</span></button>
+            <button class="nav-item" data-page="students"><span data-icon="users"></span><span>Students</span><span class="nav-count" id="studentNavCount">24</span></button>
+            <button class="nav-item" data-page="attendance"><span data-icon="clipboard"></span><span>Attendance</span></button>
+            <button class="nav-item" data-page="grades"><span data-icon="graduation"></span><span>Grades & performance</span></button>
+            <button class="nav-item" data-page="support"><span data-icon="heart"></span><span>Student support</span><span class="nav-alert" id="riskNavCount">5</span></button>
+          </nav>
+
+          <div class="sidebar-insight">
+            <div class="insight-icon"><span data-icon="sparkles"></span></div>
+            <strong>A clearer path to success</strong>
+            <p>Spot attendance and grade patterns before they become bigger problems.</p>
+            <button data-page="support">Explore early alerts <span>→</span></button>
+          </div>
+
+          <div class="sidebar-footer">
+            <button class="utility-link" id="dataToolsButton"><span data-icon="database"></span>Backup & restore</button>
+            <button class="utility-link" id="helpButton"><span data-icon="help"></span>Help & resources</button>
+            <div class="profile-card">
+              <div class="avatar avatar-sage">AR</div>
+              <div><strong>Alex Rivera</strong><span>Academic Advisor</span></div>
+              <button aria-label="Open profile settings" id="profileButton"><span data-icon="more"></span></button>
+            </div>
+          </div>
+        </aside>
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <div class="main-shell">
+          <header class="topbar">
+            <div class="topbar-left">
+              <button class="icon-button mobile-menu" id="menuButton" aria-label="Open navigation"><span data-icon="menu"></span></button>
+              <div class="breadcrumb"><span>Academic workspace</span><span class="breadcrumb-divider">/</span><strong id="breadcrumbCurrent">Overview</strong></div>
+            </div>
+            <div class="topbar-actions">
+              <label class="global-search">
+                <span data-icon="search"></span>
+                <input id="globalSearch" type="search" placeholder="Search students..." aria-label="Search students" autocomplete="off" />
+                <kbd>/</kbd>
+              </label>
+              <div class="notification-wrap">
+                <button class="icon-button notification-button" id="notificationButton" aria-label="Notifications" aria-expanded="false"><span data-icon="bell"></span><i></i></button>
+                <div class="notification-panel" id="notificationPanel" hidden></div>
+              </div>
+              <div class="topbar-divider"></div>
+              <button class="topbar-profile" id="topbarProfile"><div class="avatar avatar-sage">AR</div><span>Alex Rivera</span><span data-icon="chevron-down"></span></button>
+            </div>
+          </header>
+
+          <main class="page-content" id="pageContent"></main>
+        </div>
+      </div>
+
+      <div class="modal-backdrop" id="modalBackdrop" hidden>
+        <section class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"></section>
+      </div>
+      <div class="drawer-backdrop" id="drawerBackdrop" hidden>
+        <aside class="student-drawer" id="studentDrawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle"></aside>
+      </div>
+      <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+    </div>
+    <script src="./src/app.js"></script>
+  </body>
+</html>
